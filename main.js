@@ -21,6 +21,18 @@ poseNet.on('pose',gotPoses);
 
 function draw(){
     image(video,0,0,600,500);
+    fill("#FF0000");
+    stroke("#FF0000");
+
+    if(scoreLeftWrist > 0.2){
+        circle(leftWristX,leftWristY,20);
+        InNumberLeftWristY = Number(leftWristY);
+        remove_decimals = floor(InNumberLeftWristY);
+        volume = remove_decimals/500;
+        console.log("volume = " + volume);
+        document.getElementById("volume").innerHTML = "Volume = " + volume;
+        song.setVolume(volume);
+    }
 }
 
 function play(){
